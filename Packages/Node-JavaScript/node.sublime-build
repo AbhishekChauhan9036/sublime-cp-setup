@@ -1,0 +1,27 @@
+{
+  "file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
+  "selector": "source.node",
+  "env": { "NODEIOENCODING": "utf-8" },
+
+  "windows": {
+    "shell_cmd": "start cmd /k \"node \"${file}\" && @echo OFF && echo. && echo ======================= && pause && exit\""
+  },
+
+  "linux": {
+    "shell_cmd": "xfce4-terminal -H -x node \"${file}\""
+  },
+
+  "variants": [
+    {
+      "name": "CP",
+
+      "windows": {
+        "shell_cmd": "node \"${file}\" < input.txt > output.txt"
+      },
+
+      "linux": {
+        "shell_cmd": "node \"${file}\" < input.txt > output.txt"
+      }
+    }
+  ]
+}
